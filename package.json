@@ -2,12 +2,16 @@
   "name": "subscriptions-tracker-dashboard-react",
   "private": true,
   "version": "0.0.0",
+  "author": "Daniel Alejandro Cano Cardona <dacardonac201@gmail.com> (https://github.com/Dacardonac)",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "commit": "cz",
+    "pre-commit": "lint-staged",
+    "prepare": "husky"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -15,6 +19,13 @@
     "sweetalert2": "^11.19.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "esbuild": "^0.25.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
+    "prettier": "^3.5.3",
     "@eslint/js": "^9.25.1",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.3",
