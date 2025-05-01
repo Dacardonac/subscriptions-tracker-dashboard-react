@@ -1,3 +1,5 @@
+import "./Balance.css";
+
 const Balance = ({ count }) => {
   return (
     <div className="balance">

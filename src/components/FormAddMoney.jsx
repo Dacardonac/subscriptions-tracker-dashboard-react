@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Swal from 'sweetalert2';
+import './FormAddMoney.css';
+import './SweetAlert.css'
 
 const FormAddMoney = ({ setCount, setIsValid }) => {
   const [input, setInput] = useState("");

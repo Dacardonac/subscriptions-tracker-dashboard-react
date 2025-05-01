@@ -1,8 +1,10 @@
+import './FormAddSubs.css';
+
 const FormAddSubs = () => {
   return (
     <div className="add-subscription">
       <h3>Add Subscription</h3>
-      <form action="">
+      <form className="form-add-subs" action="">
         <p>Services</p>
         <select name="" id="">
           <option value="">-- Chose --</option>
@@ -19,7 +21,7 @@ const FormAddSubs = () => {
         </select>
         <p>Amount</p>
         <input type="number" placeholder="$20" />
-        <input type="submit" value="Add" />
+        <button type="submit" value={'Add'}>Add</button>
       </form>
     </div>
   );

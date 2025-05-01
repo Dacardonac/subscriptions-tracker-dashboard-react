@@ -1,0 +1,77 @@
+.add-subscription {
+  width: 260px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.add-subscription h3 {
+  color: #a78bfa;
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+/* Labels */
+.add-subscription form p {
+  color: #ccc;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-align: left;
+  margin: 10px 5px;
+}
+
+/* Inputs & Select */
+.add-subscription select,
+.add-subscription input[type="number"] {
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  width: 100%;
+  background-color: #2a2a2a;
+  color: #f2f2f2;
+  border: 1px solid #444;
+  font-size: 15px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.add-subscription button[type="submit"] {
+  padding: 0.9rem 1.5rem;
+  border-radius: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+  background-color: #313131;
+  border: 1px solid #414141;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.add-subscription button[type="submit"]:hover {
+  background: #e5e5e5;
+  color: #212121;
+  transform: translateY(-2px);
+}
+
+.add-subscription button[type="submit"]:active {
+  background: #999;
+  transform: translateY(0);
+}
+
+.add-subscription select:hover {
+  cursor: pointer;
+}
+
+.add-subscription select:focus,
+.add-subscription input[type="number"]:focus,
+.add-subscription input[type="submit"]:focus {
+  outline: none;
+  border-color: #a58bff;
+  box-shadow: 0 0 0 3px rgba(76, 144, 244, 0.2);
+}

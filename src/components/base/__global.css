@@ -1,0 +1,10 @@
+body {
+  min-height: 100vh;
+  font-family: "Ubuntu", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(304deg, #000, #1e1e1e 50%, #000);
+  color: #ffffff;
+  padding: 1rem;
+}
