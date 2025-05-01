@@ -1,6 +1,6 @@
-import Header from './Header';
-import FormAddMoney from './FormAddMoney';
-import MainControl from './MainControl';
+import Header from '../header/Header';
+import FormAddMoney from '../form-add-money/FormAddMoney';
+import MainControl from '../main-control/MainControl';
 import './Dashboard.css';
 
 function Dashboard({ count, setCount, isValid, setIsValid }) {

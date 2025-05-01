@@ -1,15 +1,12 @@
-{/* <button type="submit" className="form-submit-btn">Submit</button>
-    <button type="submit">Add</button> */}
-
 import './SubmitBtn.css';
 
-const SubmitBtn = ({ text, marginTop }) => {
+const SubmitBtn = ({ children, marginTop }) => {
   return (
     <button type="submit"
             className="form-submit-btn"
             style={{ marginTop }}
     >
-      {text}
+      {children}
     </button>
   );
 }

@@ -1,5 +1,5 @@
-import Balance from "./Balance";
-import FormAddSubs from "./FormAddSubs";
+import Balance from "../balance/Balance";
+import FormAddSubs from "../form-add-subs/FormAddSubs";
 import './MainControl.css';
 
 const MainControl = ({ count }) => {

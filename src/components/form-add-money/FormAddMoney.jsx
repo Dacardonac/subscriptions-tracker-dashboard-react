@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Swal from 'sweetalert2';
-import SubmitBtn from './SubmitBtn';
+import SubmitBtn from '../submit-btn/SubmitBtn';
 import './FormAddMoney.css';
-import './SweetAlert.css'
+import '../sweet-alert/SweetAlert.css';
 
 const FormAddMoney = ({ setCount, setIsValid }) => {
   const [input, setInput] = useState("");
@@ -12,9 +12,6 @@ const FormAddMoney = ({ setCount, setIsValid }) => {
     toast: true,
     position: 'top-right',
     iconColor: '#fff',
-    customClass: {
-      popup: 'colored-toast',
-    },
     showConfirmButton: false,
     timer: 2000,
     timerProgressBar: true,
@@ -33,14 +30,17 @@ const FormAddMoney = ({ setCount, setIsValid }) => {
         title: 'Invalid Budget',
         background: '#ff4c5b',
         color: '#fff',
+        customClass: {
+          popup: 'toast-error',
+        }
       });
       return;
-    }
+    };
     setError(false);
     setCount(Number(input));
     setIsValid(true);
     console.log('enviado con:', input);
-  }
+  };
 
   return (
       <form className="form-add-money" onSubmit={ handleForm }>
@@ -57,9 +57,11 @@ const FormAddMoney = ({ setCount, setIsValid }) => {
             onFocus={() => setError(false)}
           />
         </div>
-        <SubmitBtn text="Submit" />
+        <SubmitBtn>
+          Submit
+        </SubmitBtn>
       </form>
   );
-}
+};
 
 export default FormAddMoney;
