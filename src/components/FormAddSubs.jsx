@@ -1,3 +1,4 @@
+import SubmitBtn from './SubmitBtn';
 import './FormAddSubs.css';
 
 const FormAddSubs = () => {
@@ -21,7 +22,9 @@ const FormAddSubs = () => {
         </select>
         <p>Amount</p>
         <input type="number" placeholder="$20" />
-        <button type="submit" value={'Add'}>Add</button>
+        <SubmitBtn  text="Add"
+                    marginTop="1.5rem"
+        />
       </form>
     </div>
   );

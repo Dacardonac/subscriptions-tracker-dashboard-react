@@ -36,41 +36,13 @@
   font-size: 15px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.add-subscription button[type="submit"] {
-  padding: 0.9rem 1.5rem;
-  border-radius: 12px;
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 1rem;
-  text-transform: uppercase;
-  margin-top: 1.5rem;
-  background-color: #313131;
-  border: 1px solid #414141;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  color: #fff;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
-}
-
-.add-subscription button[type="submit"]:hover {
-  background: #e5e5e5;
-  color: #212121;
-  transform: translateY(-2px);
-}
-
-.add-subscription button[type="submit"]:active {
-  background: #999;
-  transform: translateY(0);
-}
 
 .add-subscription select:hover {
   cursor: pointer;
 }
 
 .add-subscription select:focus,
-.add-subscription input[type="number"]:focus,
-.add-subscription input[type="submit"]:focus {
+.add-subscription input[type="number"]:focus {
   outline: none;
   border-color: #a58bff;
   box-shadow: 0 0 0 3px rgba(76, 144, 244, 0.2);

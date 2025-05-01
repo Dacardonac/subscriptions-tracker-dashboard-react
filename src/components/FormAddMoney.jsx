@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Swal from 'sweetalert2';
+import SubmitBtn from './SubmitBtn';
 import './FormAddMoney.css';
 import './SweetAlert.css'
 
@@ -56,7 +57,7 @@ const FormAddMoney = ({ setCount, setIsValid }) => {
             onFocus={() => setError(false)}
           />
         </div>
-        <button type="submit" className="form-submit-btn">Submit</button>
+        <SubmitBtn text="Submit" />
       </form>
   );
 }
