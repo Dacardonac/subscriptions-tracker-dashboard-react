@@ -1,7 +1,7 @@
-.toast-error .swal2-timer-progress-bar {
+.toast-error-bar {
   background: #ac0000;
 }
 
-.toast-success .swal2-timer-progress-bar {
+.toast-success-bar {
   background: #007500;
 }

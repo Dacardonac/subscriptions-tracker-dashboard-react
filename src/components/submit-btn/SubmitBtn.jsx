@@ -5,6 +5,7 @@ const SubmitBtn = ({ children, marginTop }) => {
     <button type="submit"
             className="form-submit-btn"
             style={{ marginTop }}
+            value={ children }
     >
       {children}
     </button>

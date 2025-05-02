@@ -6,43 +6,7 @@
   width: 100%;
 }
 
-/* Items */
-/* .single-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #2a2a2a;
-  border-radius: 12px;
-  padding: 1rem;
-  margin: 1rem 0;
-  transition: background 0.3s;
-}
 
-.single-item a {
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.4rem 0.75rem;
-  border-radius: 6px;
-  background-color: #40c9ff;
-  color: #000;
-  transition: background 0.3s, color 0.3s;
-}
-
-.single-item a.delete:hover {
-  background-color: #ff4f4f;
-  color: #fff;
-}
-
-.single-item a.edit:hover {
-  background-color: #40c9ff;
-  color: #000;
-}
-
-.single-item img {
-  width: 120px;
-  border-radius: 8px;
-  object-fit: cover;
-}
 
 /* Autor */
 /* p.author {
@@ -59,4 +23,4 @@ p.author a {
   color: #40c9ff;
   font-weight: 700;
   text-decoration: none;
-} */ 
+} */

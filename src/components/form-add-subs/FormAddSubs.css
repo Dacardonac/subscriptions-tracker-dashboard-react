@@ -25,16 +25,22 @@
 }
 
 /* Inputs & Select */
+
+.add-subscription select {
+  text-align: center;
+}
+
 .add-subscription select,
 .add-subscription input[type="number"] {
   padding: 0.8rem 1rem;
-  border-radius: 10px;
+  border-radius: 8px;
   width: 100%;
   background-color: #2a2a2a;
-  color: #f2f2f2;
-  border: 1px solid #444;
-  font-size: 15px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  color: #fff;
+  border: 1px solid #414141;
+  font-size: 14px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .add-subscription select:hover {
@@ -45,5 +51,13 @@
 .add-subscription input[type="number"]:focus {
   outline: none;
   border-color: #a58bff;
-  box-shadow: 0 0 0 3px rgba(76, 144, 244, 0.2);
+  box-shadow: 0 0 0 2px rgba(165, 139, 255, 0.3);
+}
+
+select.input-error,
+input[type="number"].input-error {
+  transition: none;
+  border: 1px solid #ff4c5b;
+  background-color: #3a1f1f;
+  box-shadow: 0 0 0 2px rgba(255, 139, 139, 0.3);
 }

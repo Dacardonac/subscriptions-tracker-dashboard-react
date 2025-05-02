@@ -31,7 +31,7 @@ const FormAddMoney = ({ setCount, setIsValid }) => {
         background: '#ff4c5b',
         color: '#fff',
         customClass: {
-          popup: 'toast-error',
+          timerProgressBar: 'toast-error-bar',
         }
       });
       return;
@@ -39,11 +39,11 @@ const FormAddMoney = ({ setCount, setIsValid }) => {
     setError(false);
     setCount(Number(input));
     setIsValid(true);
-    console.log('enviado con:', input);
+    setInput("");
   };
 
   return (
-      <form className="form-add-money" onSubmit={ handleForm }>
+      <form className="form-add-money" action="#" onSubmit={ handleForm }>
         <div className="form-group">
           <label htmlFor="amount">Add an Amount:</label>
           <input
