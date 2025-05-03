@@ -1,7 +1,7 @@
 import SingleItem from '../single-item/SingleItem';
 import './DisplayItems.css';
 
-const DisplayItems = ({ subs, deleteItem }) => {
+const DisplayItems = ({ subs, deleteItem, editItem }) => {
   return (
     <>
       <h2>Subscriptions</h2>
@@ -13,6 +13,7 @@ const DisplayItems = ({ subs, deleteItem }) => {
             price={item.price}
             type={item.type}
             deleteItem={deleteItem}
+            editItem={editItem}
           />
         ))
       }

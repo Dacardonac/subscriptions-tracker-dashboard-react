@@ -3,7 +3,7 @@ import {  moneyFormat } from '../../helpers/helpers';
 import './SingleItem.css'
 import '../sweet-alert/SweetAlert.css';
 
-const SingleItem = ({ price, type, id, deleteItem }) => {
+const SingleItem = ({ price, type, id, deleteItem, editItem }) => {
 
   const linkImage = `https://www.${type}.com/`;
   const urlImage = `/public/images/${type}.webp`;
@@ -57,15 +57,50 @@ const SingleItem = ({ price, type, id, deleteItem }) => {
     });
   };
 
+  const HandleEdit = (e) => {
+    e.preventDefault();
+    Swal.fire({
+      title: 'Edit Item',
+      text: 'You can edit the item here.',
+      icon: 'info',
+      iconColor: '#ff9040',
+      background: '#3a3a3a',
+      color: '#fff',
+      showCancelButton: true,
+      confirmButtonColor: '#4caf50',
+      cancelButtonColor: '#ff4c5b',
+      confirmButtonText: 'Edit',
+      cancelButtonText: 'Cancel',
+      customClass: {
+        popup: 'swal2-small',
+        confirmButton: 'swal2-confirm',
+        cancelButton: 'swal2-cancel',
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        editItem(id);
+        Toast.fire({
+          icon: 'success',
+          title: 'Edited!',
+          background: '#4caf50',
+          color: '#fff',
+          customClass: {
+            timerProgressBar: 'toast-succes-bar',
+          }
+        });
+      };
+    });
+  }
+
   return (
     <div className='single-item'>
       <a href={linkImage} target='_blanck' rel="noopener noreferrer"><img src={urlImage} alt={altImage} /></a>
-      <h3>Price: {moneyFormat(Number(price))}</h3>
+      <h3>Price: <span>{moneyFormat(Number(price))}</span></h3>
       <div className='buttons'>
       <button className='delete' onClick={HandleDelete}>
         Delete
       </button>
-      <button className='edit'>
+      <button className='edit' onClick={HandleEdit}>
         Edit
       </button>
       </div>

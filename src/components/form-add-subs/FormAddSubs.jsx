@@ -4,7 +4,7 @@ import SubmitBtn from '../submit-btn/SubmitBtn';
 import '../sweet-alert/SweetAlert.css';
 import './FormAddSubs.css';
 
-const FormAddSubs = ({ setType, setPrice, type, price, setSubs, subs }) => {
+const FormAddSubs = ({ setType, setPrice, type, price, setSubs, subs, editId, setEditId, spent, count }) => {
   const [typeError, setTypeError] = useState(false);
   const [priceError, setPriceError] = useState(false);
 
@@ -49,15 +49,31 @@ const FormAddSubs = ({ setType, setPrice, type, price, setSubs, subs }) => {
       });
       return;
     }
+
+    if (count - spent < Number(price) ) // finish this line
+
     setPriceError(false);
     setTypeError(false);
 
-    const data = {
-      type: type,
-      price: price,
-      id: crypto.randomUUID(),
-    };
-    setSubs([...subs, data]); // Review this line to ensure it works as expected and doesn't cause any issues in the printing process.
+    if (editId !== "") {
+      setEditId('');
+      const newSubs = subs.map(item => {
+        if (item.id === editId) {
+          item.type = type;
+          item.price = price;
+        };
+        return item;
+      });
+      setSubs(newSubs);
+    } else {
+      const data = {
+        type: type,
+        price: price,
+        id: crypto.randomUUID(),
+      };
+      setSubs([...subs, data]);
+    }
+
     setType('');
     setPrice('');
 
@@ -70,7 +86,6 @@ const FormAddSubs = ({ setType, setPrice, type, price, setSubs, subs }) => {
         timerProgressBar: 'toast-success-bar',
       }
     });
-    console.log(`Service: ${type}, Price: $${price}`);
   };
 
   return (
@@ -104,12 +119,12 @@ const FormAddSubs = ({ setType, setPrice, type, price, setSubs, subs }) => {
                 onFocus={() => setPriceError(false)}
                 value={price}
         />
-        <SubmitBtn marginTop="1.5rem">
-          Add
-        </SubmitBtn>
+        { editId != ""  ? <SubmitBtn marginTop="1.5rem">Edit</SubmitBtn>
+                        : <SubmitBtn marginTop="1.5rem">Add</SubmitBtn>
+        }
       </form>
     </div>
   );
-}
+};
 
 export default FormAddSubs;
