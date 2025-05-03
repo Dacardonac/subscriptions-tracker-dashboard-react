@@ -5,3 +5,40 @@
 .toast-success-bar {
   background: #007500;
 }
+
+.swal2-small {
+  width: 400px;
+  height: auto;
+  font-size: 0.9rem;
+  border-radius: 1rem;
+  background: #262626 !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.swal2-confirm {
+  border-radius: 8px;
+  background-color: #1f3a1f;
+  border: 1px solid #4caf50;
+  transition: all 0.3s ease;
+}
+
+.swal2-confirm:hover {
+  background-color: #4caf50;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.swal2-cancel {
+  border-radius: 8px;
+  background-color: #3a1f1f;
+  border: 1px solid #ff4f4f;
+  transition: all 0.3s ease;
+}
+
+.swal2-cancel:hover {
+  background-color: #ff4f4f;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}

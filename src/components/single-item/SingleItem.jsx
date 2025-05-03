@@ -1,26 +1,76 @@
+import Swal from 'sweetalert2';
 import {  moneyFormat } from '../../helpers/helpers';
 import './SingleItem.css'
+import '../sweet-alert/SweetAlert.css';
 
-const SingleItem = ({ price, type, id }) => {
+const SingleItem = ({ price, type, id, deleteItem }) => {
 
+  const linkImage = `https://www.${type}.com/`;
   const urlImage = `/public/images/${type}.webp`;
-  console.log(id);
+  const altImage = `${type} logo`;
+
+  const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-right',
+        iconColor: '#fff',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+  });
+
+  const HandleDelete = (e) => {
+    e.preventDefault();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Are you sure you want to delete this item?',
+      icon: 'warning',
+      iconColor: '#ff9040',
+      showCancelButton: true,
+      background: '#3a3a3a',
+      color: '#fff',
+      confirmButtonColor: '#4caf50',
+      cancelButtonColor: '#ff4c5b',
+      confirmButtonText: 'Delete',
+      cancelButtonText: 'Cancel',
+      customClass: {
+        popup: 'swal2-small',
+        confirmButton: 'swal2-confirm',
+        cancelButton: 'swal2-cancel',
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteItem(id);
+        Toast.fire({
+          icon: 'success',
+          title: 'Deleted!',
+          background: '#4caf50',
+          color: '#fff',
+          customClass: {
+            timerProgressBar: 'toast-succes-bar',
+          }
+        });
+      };
+    });
+  };
 
   return (
     <div className='single-item'>
-      <a href="#"><img src={urlImage} alt="" /></a>
+      <a href={linkImage} target='_blanck' rel="noopener noreferrer"><img src={urlImage} alt={altImage} /></a>
       <h3>Price: {moneyFormat(Number(price))}</h3>
       <div className='buttons'>
-      <button className='delete'>
-        <a href="">Delete</a>
+      <button className='delete' onClick={HandleDelete}>
+        Delete
       </button>
       <button className='edit'>
-        <a href="">Edit</a>
+        Edit
       </button>
       </div>
     </div>
   );
 };
-
 
 export default SingleItem;
