@@ -84,7 +84,7 @@ const FormAddSubs = ({ setType, setPrice, type, price, setSubs, subs }) => {
                 onFocus={() => setTypeError(false)}
                 value={type}
         >
-          <option>-- Chose --</option>
+          <option value="">-- Chose --</option>
           <option value="netflix">Netflix</option>
           <option value="disneyPlus">Disney Plus</option>
           <option value="hboMax">HBO Max</option>

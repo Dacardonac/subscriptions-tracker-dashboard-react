@@ -28,6 +28,12 @@
 
 .add-subscription select {
   text-align: center;
+  text-align-last: center;
+}
+
+.add-subscription option {
+  text-align: center;
+  text-align-last: center;
 }
 
 .add-subscription select,

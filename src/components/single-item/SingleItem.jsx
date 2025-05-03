@@ -8,14 +8,16 @@ const SingleItem = ({ price, type, id }) => {
 
   return (
     <div className='single-item'>
-      <img src={urlImage} alt="" />
+      <a href="#"><img src={urlImage} alt="" /></a>
       <h3>Price: {moneyFormat(Number(price))}</h3>
-      <button>
+      <div className='buttons'>
+      <button className='delete'>
         <a href="">Delete</a>
       </button>
-      <button>
+      <button className='edit'>
         <a href="">Edit</a>
       </button>
+      </div>
     </div>
   );
 };
