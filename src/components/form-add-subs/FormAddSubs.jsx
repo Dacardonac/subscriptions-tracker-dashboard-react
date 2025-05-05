@@ -7,6 +7,7 @@ import './FormAddSubs.css';
 const FormAddSubs = ({ setType, setPrice, type, price, setSubs, subs, editId, setEditId, spent, count }) => {
   const [typeError, setTypeError] = useState(false);
   const [priceError, setPriceError] = useState(false);
+  const [errorMoney, setErrorMoney] = useState(false);
 
   const Toast = Swal.mixin({
       toast: true,
@@ -50,10 +51,23 @@ const FormAddSubs = ({ setType, setPrice, type, price, setSubs, subs, editId, se
       return;
     }
 
-    if (count - spent < Number(price) ) // finish this line
+    if (count - spent < price) {
+      setErrorMoney(true);
+      Toast.fire({
+        icon: 'error',
+        title: 'You don\'t have enough money',
+        background: '#ff4c5b',
+        color: '#fff',
+        customClass: {
+          timerProgressBar: 'toast-error-bar',
+        }
+      });
+      return;
+    };
 
     setPriceError(false);
     setTypeError(false);
+    setErrorMoney(false);
 
     if (editId !== "") {
       setEditId('');
@@ -112,11 +126,11 @@ const FormAddSubs = ({ setType, setPrice, type, price, setSubs, subs, editId, se
           {/* <!-- Add more options as needed --> */}
         </select>
         <p>Amount</p>
-        <input className={priceError ? 'input-error' : ''}
+        <input className={priceError || errorMoney ? 'input-error' : ''}
                 type="number"
                 placeholder="$20"
                 onChange={e => setPrice(e.target.value)}
-                onFocus={() => setPriceError(false)}
+                onFocus={() => setPriceError(false) && setErrorMoney(false)}
                 value={price}
         />
         { editId != ""  ? <SubmitBtn marginTop="1.5rem">Edit</SubmitBtn>

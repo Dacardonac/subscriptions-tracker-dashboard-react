@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Balance from "../balance/Balance";
 import FormAddSubs from "../form-add-subs/FormAddSubs";
 import './MainControl.css';
@@ -10,6 +10,17 @@ const MainControl = ({ count }) => {
   const [price, setPrice] = useState('');
   const [editId, setEditId] = useState('');
   const [spent, setSpent] = useState(0);
+
+  useEffect(() => {
+    const storeSubs = localStorage.getItem('subs');
+    if (storeSubs) {
+      setSubs(JSON.parse(storeSubs));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('subs', JSON.stringify(subs));
+  }, [subs]);
 
   const deleteItem = (id) => {
     const newList = subs.filter((item) => item.id !== id);
