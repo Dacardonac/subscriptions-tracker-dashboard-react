@@ -6,7 +6,7 @@ import '../sweet-alert/SweetAlert.css';
 const SingleItem = ({ price, type, id, deleteItem, editItem }) => {
 
   const linkImage = `https://www.${type}.com/`;
-  const urlImage = `/public/images/${type}.webp`;
+  const urlImage = `/images/${type}.webp`;
   const altImage = `${type} logo`;
 
   const Toast = Swal.mixin({
