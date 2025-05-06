@@ -31,7 +31,7 @@ A React-based web app to manage and track your monthly digital subscriptions (li
 ## 🔗 Live Demo
 
 You can try the app live on Vercel:
-👉 **[]()**
+👉 **[Vercel Deploy](https://subscriptions-tracker-dashboard-react.vercel.app/)**
 
 ## 📸 Preview
 
@@ -87,4 +87,9 @@ Bug fixes, feature additions, and performance improvements are all welcome 😊.
 Developed by **[Daniel Alejandro Cano Cardona](https://github.com/Dacardonac)**
 
 Inspired by: **[Subscription-Tracker-React | Garu2](https://github.com/garu2/Subscription-Tracker-React)**
+#
 
+> [!Note]
+> The design is intended for tablets, desktops, and larger devices only. Mobile support is not yet implemented, so if you want to view the implementation from a mobile device, the design and accessibility will be affected.
+>
+**Required: Finalize the responsive design**
