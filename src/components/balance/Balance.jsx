@@ -1,17 +1,7 @@
-import { useEffect } from "react";
 import { moneyFormat } from "../../helpers/helpers";
 import "./Balance.css";
 
-const Balance = ({ count, subs, spent, setSpent }) => {
-
-  const updateBalance = () => {
-    const spent = subs.reduce((total, item) => Number(item.price) + total, 0);
-    setSpent(spent);
-  };
-
-  useEffect(() => {
-    updateBalance();
-  }, [subs]);
+const Balance = ({ count, spent }) => {
 
   return (
     <div className="balance">

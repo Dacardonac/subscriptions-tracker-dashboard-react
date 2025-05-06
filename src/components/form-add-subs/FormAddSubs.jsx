@@ -51,7 +51,11 @@ const FormAddSubs = ({ setType, setPrice, type, price, setSubs, subs, editId, se
       return;
     }
 
-    if (count - spent < price) {
+    const priceNumber = Number(price);
+    const oldPrice = subs.find(sub => sub.id === editId)?.price || 0;
+    const adjustedSpent = editId ? spent - Number(oldPrice) : spent;
+
+    if (count - adjustedSpent < priceNumber) {
       setErrorMoney(true);
       Toast.fire({
         icon: 'error',
@@ -73,12 +77,20 @@ const FormAddSubs = ({ setType, setPrice, type, price, setSubs, subs, editId, se
       setEditId('');
       const newSubs = subs.map(item => {
         if (item.id === editId) {
-          item.type = type;
-          item.price = price;
+          return {...item, type, price };
         };
         return item;
       });
       setSubs(newSubs);
+      Toast.fire({
+        icon: 'success',
+        title: 'Subscription Edited',
+        background: '#4caf50',
+        color: '#fff',
+        customClass: {
+          timerProgressBar: 'toast-success-bar',
+        }
+      });
     } else {
       const data = {
         type: type,
@@ -86,20 +98,19 @@ const FormAddSubs = ({ setType, setPrice, type, price, setSubs, subs, editId, se
         id: crypto.randomUUID(),
       };
       setSubs([...subs, data]);
+      Toast.fire({
+        icon: 'success',
+        title: 'Subscription Added',
+        background: '#4caf50',
+        color: '#fff',
+        customClass: {
+          timerProgressBar: 'toast-success-bar',
+        }
+      });
     }
 
     setType('');
     setPrice('');
-
-    Toast.fire({
-      icon: 'success',
-      title: 'Subscription Added',
-      background: '#4caf50',
-      color: '#fff',
-      customClass: {
-        timerProgressBar: 'toast-success-bar',
-      }
-    });
   };
 
   return (
@@ -129,8 +140,8 @@ const FormAddSubs = ({ setType, setPrice, type, price, setSubs, subs, editId, se
         <input className={priceError || errorMoney ? 'input-error' : ''}
                 type="number"
                 placeholder="$20"
-                onChange={e => setPrice(e.target.value)}
-                onFocus={() => setPriceError(false) && setErrorMoney(false)}
+                onChange={e => setPrice(Number(e.target.value))}
+                onFocus={() => {setPriceError(false); setErrorMoney(false);}}
                 value={price}
         />
         { editId != ""  ? <SubmitBtn marginTop="1.5rem">Edit</SubmitBtn>

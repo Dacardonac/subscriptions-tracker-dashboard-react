@@ -1,47 +1,52 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Balance from "../balance/Balance";
 import FormAddSubs from "../form-add-subs/FormAddSubs";
-import './MainControl.css';
+import ResetBtn from "../reset-btn/ResetBtn";
 import DisplayItems from '../display-items/DisplayItems';
+import './MainControl.css';
 
-const MainControl = ({ count }) => {
-  const [subs, setSubs] = useState([]);
+const MainControl = ({ count, setCount, setIsValid, subs, setSubs, spent, setSpent }) => {
+
   const [type, setType] = useState('');
   const [price, setPrice] = useState('');
   const [editId, setEditId] = useState('');
-  const [spent, setSpent] = useState(0);
 
-  useEffect(() => {
-    const storeSubs = localStorage.getItem('subs');
-    if (storeSubs) {
-      setSubs(JSON.parse(storeSubs));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('subs', JSON.stringify(subs));
-  }, [subs]);
+  const handleReset = () => {
+    setCount(0);
+    setIsValid(false);
+    setSubs([]);
+    setType('');
+    setPrice('');
+    setSpent(0);
+    localStorage.removeItem('count');
+    localStorage.removeItem('isValid');
+    localStorage.removeItem('subs');
+    localStorage.removeItem('spent');
+  };
 
   const deleteItem = (id) => {
     const newList = subs.filter((item) => item.id !== id);
     setSubs(newList);
+    localStorage.setItem('subs', JSON.stringify(newList));
   };
 
-  const editItem = id => {
+  const editItem = (id) => {
     setEditId(id);
-    subs.map(item => {
-      if (item.id === id) {
-        setType(item.type);
-        setPrice(item.price);
-      }
-    });
+    const itemToEdit = subs.find((item) => item.id === id);
+    if (itemToEdit) {
+      setType(itemToEdit.type);
+      setPrice(itemToEdit.price);
+    };
   };
 
 
   return (
     <>
-      <div className="main-control">
-        <Balance count={count} subs={subs} spent={spent} setSpent={setSpent}/>
+      <article className="main-control">
+        <div>
+          <Balance count={count} subs={subs} spent={spent} setSpent={setSpent}/>
+          <ResetBtn onClick={handleReset}>Reset</ResetBtn>
+        </div>
         <FormAddSubs
           setType={setType}
           setPrice={setPrice}
@@ -54,7 +59,7 @@ const MainControl = ({ count }) => {
           spent={spent}
           count={count}
         />
-      </div>
+      </article>
       <DisplayItems
         subs={subs}
         deleteItem={deleteItem}

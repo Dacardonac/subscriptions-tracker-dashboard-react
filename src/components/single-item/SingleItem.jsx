@@ -79,22 +79,13 @@ const SingleItem = ({ price, type, id, deleteItem, editItem }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         editItem(id);
-        Toast.fire({
-          icon: 'success',
-          title: 'Edited!',
-          background: '#4caf50',
-          color: '#fff',
-          customClass: {
-            timerProgressBar: 'toast-succes-bar',
-          }
-        });
       };
     });
   }
 
   return (
     <div className='single-item'>
-      <a href={linkImage} target='_blanck' rel="noopener noreferrer"><img src={urlImage} alt={altImage} /></a>
+      <a href={linkImage} target='_blank' rel="noopener noreferrer"><img src={urlImage} alt={altImage} /></a>
       <h3>Price: <span>{moneyFormat(Number(price))}</span></h3>
       <div className='buttons'>
       <button className='delete' onClick={HandleDelete}>
